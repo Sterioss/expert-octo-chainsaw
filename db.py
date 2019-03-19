@@ -4,13 +4,11 @@ from tinydb import TinyDB, Query
 class Db:
 
     def __init__(self):
-        self.__db = TinyDB('./db.json').table('badger')
-
+        self.__db = TinyDB('./db.json')
 
     def findfirst(self, firstname):
         query = Query()
         return self.__db.search(query.firstname == firstname)
-
 
     def all(self):
         return self.__db.all()

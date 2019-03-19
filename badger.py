@@ -7,12 +7,13 @@ class Badger:
         self.firstName = firstname
         self.lastName = lastname
         self.__endpoint = 'http://10.3.1.56:8080'
-        self.__timeout = 1
+        self.__timeout = 2
 
     def __getlogin(self):
         try:
             r = requests.post(self.__endpoint + '/login/',
-                              data={'action': 'typeLogin', 'userMail': self.firstName + '.' + self.lastName + '@uha.fr',
+                              data={'action': 'tryConnect',
+                                    'userMail': self.firstName + '.' + self.lastName + '@uha.fr',
                                     'password': 'uha'}, timeout=self.__timeout).json()
         except requests.exceptions.RequestException as e:
             print(e)
@@ -26,21 +27,15 @@ class Badger:
         except TypeError as e:
             print(e)
         else:
-            return r
-
-    def __username(self):
-        try:
-            r = self.__getlogin()['userName']
-        except TypeError as e:
-            print(e)
-        else:
+            __token = r
             return r
 
     def __userid(self):
         try:
             r = requests.post(self.__endpoint + '/user/',
-                              data={'action': 'getIdUser',
-                                    'userName': self.__username(),
+                              data={'token': self.__gettoken(),
+                                    'action': 'getIdUser',
+                                    'userName': self.lastName + " " + self.firstName,
                                     }, timeout=self.__timeout)
         except requests.exceptions.RequestException as e:
             print(e)
@@ -54,7 +49,7 @@ class Badger:
                                          'action': 'setPresence',
                                          'id_user': self.__userid(),
                                          'presence': presence,
-                                         }, timeout=self.__timeout)
+                                         }, timeout=self.__timeout).json()
         except TypeError as e:
             print(e)
             return 1
@@ -64,4 +59,5 @@ class Badger:
         except TimeoutError:
             return 1
         else:
+            print(badger['message'])
             return badger

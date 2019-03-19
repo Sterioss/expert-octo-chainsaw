@@ -13,11 +13,11 @@ class Task:
 
     def __seton(self, firstname, lastname):
         onbadger = Badger(firstname, lastname)
-        return onbadger.setpresence(1)
+        return onbadger.setpresence(0)
 
     def __setoff(self, firstname, lastname):
         offbadger = Badger(firstname, lastname)
-        return offbadger.setpresence(0)
+        return offbadger.setpresence(1)
 
     def __on(self):
         if time.strftime("%H:%M") == self.on:
