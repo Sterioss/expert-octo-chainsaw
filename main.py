@@ -54,7 +54,7 @@ def new():
 if __name__ == '__main__':
     p = Process(target=work)
     p.start()
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
     p.join()
 
 
