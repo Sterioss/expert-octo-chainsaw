@@ -1,0 +1,75 @@
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 304-879-417
+ * Detected change in '/root/expert-octo-chainsaw/db.py', reloading
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Traceback (most recent call last):
+  File "/root/expert-octo-chainsaw/main.py", line 87, in <module>
+    app.run(debug=True, host='0.0.0.0')
+  File "/usr/lib/python3.6/site-packages/flask/app.py", line 943, in run
+    run_simple(host, port, self, **options)
+  File "/usr/lib/python3.6/site-packages/werkzeug/serving.py", line 968, in run_simple
+    s.bind(server_address)
+OSError: [Errno 98] Address in use
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/popen_fork.py", line 28, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/expert-octo-chainsaw/main.py", line 29, in work
+    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+KeyboardInterrupt
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Traceback (most recent call last):
+  File "/root/expert-octo-chainsaw/main.py", line 87, in <module>
+    app.run(debug=True, host='0.0.0.0')
+  File "/usr/lib/python3.6/site-packages/flask/app.py", line 943, in run
+    run_simple(host, port, self, **options)
+  File "/usr/lib/python3.6/site-packages/werkzeug/serving.py", line 968, in run_simple
+    s.bind(server_address)
+OSError: [Errno 98] Address in use
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/popen_fork.py", line 28, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/expert-octo-chainsaw/main.py", line 29, in work
+    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+KeyboardInterrupt
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 304-879-417
+10.3.1.170 - - [21/Mar/2019 16:16:30] "GET / HTTP/1.1" 200 -
+ * Detected change in '/root/expert-octo-chainsaw/main.py', reloading
