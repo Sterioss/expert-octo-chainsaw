@@ -1,3 +1,4 @@
+import randomTime
 from badger import Badger
 import time
 
@@ -12,11 +13,13 @@ class Task:
         self.__off()
         self.__on()
 
-    def __seton(self, firstname, lastname, password):
+    @staticmethod
+    def __seton(firstname, lastname, password):
         onbadger = Badger(firstname, lastname, password)
         return onbadger.setpresence("1")
 
-    def __setoff(self, firstname, lastname, password):
+    @staticmethod
+    def __setoff(firstname, lastname, password):
         offbadger = Badger(firstname, lastname, password)
         return offbadger.setpresence("0")
 
@@ -27,3 +30,7 @@ class Task:
     def __off(self):
         if time.strftime("%H:%M") == self.off:
             self.__setoff(self.firstname, self.lastname, self.password)
+
+    def __newrandom(self):
+        if time.strftime("%H:%M") == "00:00":
+            randomTime.RandomTime().randomizer()
