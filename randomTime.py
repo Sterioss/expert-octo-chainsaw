@@ -6,12 +6,15 @@ from datetime import datetime, timedelta
 class RandomTime:
     db = Db()
 
-    def getdbvalues(self):
+    def __init__(self):
+        self.randomizer()
+
+    def __getdbvalues(self):
         return self.db.all()
 
     def randomizer(self):
         self.db.droprandom()
-        for user in self.getdbvalues():
+        for user in self.__getdbvalues():
             on = datetime.strptime(user['on'], "%H:%M")
             on += timedelta(minutes=random.randint(0, 10))
             off = datetime.strptime(user['off'], "%H:%M")

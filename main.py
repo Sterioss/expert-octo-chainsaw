@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import randomTime
 from Task import Task
 import time
 import datetime
@@ -10,14 +11,18 @@ import logging
 
 app = Flask(__name__)
 db = Db()
+#start = datetime.datetime.now().replace().replace(hour=8, minute=0, second=0, microsecond=0)
+#end = datetime.datetime.now().replace().replace(hour=19, minute=0, second=0, microsecond=0)
 
 
 def work():
     while True:
+        starttime = time.time()
+        if time.strftime("%H:%M") == "01:00":
+            randomTime.RandomTime()
         if datetime.datetime.today().weekday() < 5:
-            starttime = time.time()
             try:
-                r = db.all()
+                r = db.all_random()
             except TypeError as e:
                 print(e)
                 return 1
@@ -31,6 +36,16 @@ def work():
         else:
             print(datetime.datetime.today().weekday())
             time.sleep(120)
+
+
+@app.route('/random')
+def allentries_random():
+    try:
+        r = db.all_random()
+    except TypeError as e:
+        return e
+    else:
+        return json.dumps(r)
 
 
 @app.route('/')
